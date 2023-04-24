@@ -33,7 +33,6 @@ router.get("/blood-camp", async (req, res) => {
 });
 
 router.put("/blood-camp", async (req, res) => {
-  console.log("i am here");
   try {
     const response = await bloodCampModal.findByIdAndUpdate(
       { _id: req.body._id },

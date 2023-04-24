@@ -28,11 +28,6 @@ const bloodCampSchema = new Schema(
       required: [true, "eDate Is Required"],
       trim: true,
     },
-    eTime: {
-      type: String,
-      required: [true, "eTime Is Required"],
-      trim: true,
-    },
     donorRegistered: [{ name: String, contactNumber: String }],
   },
   { timestamps: true }

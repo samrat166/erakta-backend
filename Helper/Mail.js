@@ -1,25 +1,44 @@
 const nodemailer = require("nodemailer");
 
 const sendMail = (email, bloodGroup, status) => {
+  console.log(email, bloodGroup);
   var transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "samratojha91011@gmail.com",
-      pass: "ktsonuelghelvrzu",
+      user: "samratojha16@gmail.com",
+      pass: "gmuuwfbobhtizmxc",
     },
   });
 
   var mailOptions = {
-    from: "samratojha91011@gmail.com",
+    from: "samratojha16@gmail.com",
     to: email,
-    subject: "Approval Link Form Blood",
+    subject: "ERakta Nepal || Response to Blood Request",
     html: `
-    <h1 style="font-size : 30px;text-align : center;font-weight : bold;">Blood</h1><br/>
-    <h2 style="font-size : 20px;text-align : center;font-weight : bold;">Your Blood Requirement Of ${bloodGroup} Blood Group Has Been Approved.</h2><br/>
-    <h2 style="font-size : 20px;text-align : center;font-weight : bold;">Please Contact Us For More Information.</h2><br/>
+    <html>
+      <head>
+        <style>
+          h1 {
+            font-size: 30px;
+            text-align: center;
+            font-weight: bold;
+          }
 
-   
-`,
+          h2 {
+            font-size: 20px;
+            text-align: center;
+          }
+        </style>
+      </head>
+      <body>
+        <h1>Blood Request Response</h1>
+        <h2>Your Blood request Of ${bloodGroup} ${
+      status === "accepted" ? "has been Accepted." : "has been Rejected."
+    }</h2>
+        <h2>Please Contact Us For More Information.</h2>
+      </body>
+    </html>
+  `,
   };
 
   transporter.sendMail(mailOptions, function (error, info) {

@@ -7,12 +7,6 @@ const requestSchema = new Schema(
       required: [true, "Name Is Required"],
       trim: true,
     },
-    gender: {
-      type: String,
-      required: [true, "Gender Is Required"],
-      trim: true,
-    },
-
     bloodGroup: {
       type: String,
       required: [true, "Blood Group Of Birth Is Required"],
@@ -23,17 +17,16 @@ const requestSchema = new Schema(
       required: [true, "Address Of Birth Is Required"],
       trim: true,
     },
-    phoneNumber: {
-      type: String,
-      required: [true, "Phone Num Is Required"],
-      trim: true,
-    },
     email: {
       type: String,
       required: [true, "Email Is Required"],
       trim: true,
     },
     requestAmount: {
+      type: String,
+      trim: true,
+    },
+    reason: {
       type: String,
       trim: true,
     },

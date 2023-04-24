@@ -3,12 +3,24 @@ const DonorModal = require("../Models/DonorModal");
 const router = require("express").Router();
 
 router.post("/donation", async (req, res) => {
-  const response = await DonorModal.create(req.body);
   try {
-    res.status(200).json({
-      status: "Success",
-      msg: response,
+    const donor = await DonorModal.findOne({
+      name: req.body.name,
+      dateOfBirth: req.body.dateOfBirth,
+      email: req.body.email,
     });
+    if (donor) {
+      res.status(200).json({
+        status: "Failure",
+        msg: "Donor Exists",
+      });
+    } else {
+      const response = await DonorModal.create(req.body);
+      res.status(200).json({
+        status: "Success",
+        msg: response,
+      });
+    }
   } catch (error) {
     res.status(500).json({
       status: "Failure",
@@ -18,8 +30,8 @@ router.post("/donation", async (req, res) => {
 });
 router.delete("/donations/:id", async (req, res) => {
   const { id } = req.params;
-  const response = await DonorModal.findByIdAndRemove({ _id: id });
   try {
+    const response = await DonorModal.findByIdAndRemove({ _id: id });
     res.status(200).json({
       status: "Success",
       msg: response,

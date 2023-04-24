@@ -7,11 +7,6 @@ const donorSchema = new Schema(
       required: [true, "Name Is Required"],
       trim: true,
     },
-    gender: {
-      type: String,
-      required: [true, "Gender Is Required"],
-      trim: true,
-    },
 
     bloodGroup: {
       type: String,
@@ -34,25 +29,10 @@ const donorSchema = new Schema(
       required: [true, "Email Is Required"],
       trim: true,
     },
-    occupation: {
-      type: String,
-      required: [true, "Occupation Is Required"],
-      trim: true,
-    },
     address: {
       type: String,
       required: [true, "Address Is Required"],
       trim: true,
-    },
-    lastDonation: {
-      type: String,
-      trim: true,
-      default: "No",
-    },
-    disease: {
-      type: String,
-      trim: true,
-      default: "No",
     },
     allergies: {
       type: String,
